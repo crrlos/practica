@@ -6,6 +6,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,12 +25,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        String[] names =
-                {
-                        "carlos","alberto","alberto","alberto","alberto","alberto",
-                "alberto","alberto","alberto","alberto","alberto","alberto","alberto","alberto",
-                "alberto","alberto","alberto","alberto","alberto","alberto","alberto","alberto",
-                "alberto","alberto","alberto","alberto","alberto","alberto","alberto","alberto"};
+        final List<String> names = new ArrayList<>();
+        Button agregar = findViewById(R.id.button2);
+        agregar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                names.add("carlos " + names.size());
+                mAdapter.notifyItemInserted(names.size());
+            }
+        });
 
         mRecyclerView = findViewById(R.id.recyclerView);
 
@@ -46,7 +50,16 @@ public class MainActivity extends AppCompatActivity {
         mAdapter = new MyAdapter(names, new RecyclerOnClickListener() {
             @Override
             public void onClick(View v, int pos) {
-                Toast.makeText(MainActivity.this, String.valueOf(pos), Toast.LENGTH_SHORT).show();
+               //  Toast.makeText(MainActivity.this, String.valueOf(pos), Toast.LENGTH_SHORT).show();
+                names.remove(pos);
+                mAdapter.notifyItemRemoved(pos);
+
+
+            }
+
+            @Override
+            public void onLongClick(View v, int pos) {
+                Toast.makeText(MainActivity.this, "long click", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -54,5 +67,6 @@ public class MainActivity extends AppCompatActivity {
     }
     public interface RecyclerOnClickListener{
          void onClick(View v, int pos);
+         void onLongClick(View v , int pos);
     }
 }

@@ -9,14 +9,16 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.List;
+
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
 
-    private String[] mDataset;
+    private List<String> mDataset;
     private MainActivity.RecyclerOnClickListener listener;
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public MyAdapter(String[] myDataset, MainActivity.RecyclerOnClickListener listener) {
+    public MyAdapter(List<String> myDataset, MainActivity.RecyclerOnClickListener listener) {
         mDataset = myDataset;
         this.listener = listener;
     }
@@ -30,14 +32,14 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder viewHolder, int i) {
-            viewHolder.mTextView.setText(mDataset[i]);
+            viewHolder.mTextView.setText(mDataset.get(i));
 
     }
 
 
     @Override
     public int getItemCount() {
-        return mDataset.length;
+        return mDataset.size();
     }
 
     // Provide a reference to the views for each data item
@@ -47,16 +49,25 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
         MainActivity.RecyclerOnClickListener listener;
         // each data item is just a string in this case
         public TextView mTextView;
-        public MyViewHolder(View v, MainActivity.RecyclerOnClickListener listener) {
+        public MyViewHolder(View v, final MainActivity.RecyclerOnClickListener listener) {
             super(v);
             mTextView = v.findViewById(R.id.lst_txtView);
             this.listener = listener;
             v.setOnClickListener(this);
+            v.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    listener.onLongClick(v,getAdapterPosition());
+                    return true;
+                }
+            });
         }
 
         @Override
         public void onClick(View v) {
-                listener.onClick(v,this.getAdapterPosition());
+
+            listener.onClick(v,this.getAdapterPosition());
+
         }
     }
 }
