@@ -1,7 +1,9 @@
 package com.example.carlos.practica;
 
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -35,7 +37,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
         mRecyclerView = findViewById(R.id.recyclerView);
+        DividerItemDecoration itemDecor = new DividerItemDecoration(mRecyclerView.getContext(), DividerItemDecoration.VERTICAL);
+        mRecyclerView.addItemDecoration(itemDecor);
 
         // use this setting to improve performance if you know that changes
         // in content do not change the layout size of the RecyclerView
@@ -44,6 +49,8 @@ public class MainActivity extends AppCompatActivity {
         // use a linear layout manager
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
+
+
 
 
         // specify an adapter (see also next example)
