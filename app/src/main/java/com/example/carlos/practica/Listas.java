@@ -1,5 +1,6 @@
 package com.example.carlos.practica;
 
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DividerItemDecoration;
@@ -39,6 +40,16 @@ public class Listas extends AppCompatActivity {
 
         /*DividerItemDecoration itemDecor = new DividerItemDecoration(mRecyclerView.getContext(), DividerItemDecoration.VERTICAL);
         mRecyclerView.addItemDecoration(itemDecor);*/
+
+
+        final SwipeRefreshLayout swipe = findViewById(R.id.swipe);
+        swipe.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                Toast.makeText(Listas.this, "actualizando", Toast.LENGTH_SHORT).show();
+                swipe.setRefreshing(false);
+            }
+        });
 
         // use this setting to improve performance if you know that changes
         // in content do not change the layout size of the RecyclerView
