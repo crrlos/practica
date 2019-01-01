@@ -1,21 +1,18 @@
 package com.example.carlos.practica;
 
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class Listas extends AppCompatActivity {
 
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
@@ -25,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_listas);
 
         final List<String> names = new ArrayList<>();
         Button agregar = findViewById(R.id.button2);
@@ -66,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onLongClick(View v, int pos) {
-                Toast.makeText(MainActivity.this, "long click", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Listas.this, "long click", Toast.LENGTH_SHORT).show();
             }
         });
 

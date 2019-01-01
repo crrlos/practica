@@ -15,10 +15,10 @@ import java.util.List;
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
 
     private List<String> mDataset;
-    private MainActivity.RecyclerOnClickListener listener;
+    private Listas.RecyclerOnClickListener listener;
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public MyAdapter(List<String> myDataset, MainActivity.RecyclerOnClickListener listener) {
+    public MyAdapter(List<String> myDataset, Listas.RecyclerOnClickListener listener) {
         mDataset = myDataset;
         this.listener = listener;
     }
@@ -46,10 +46,10 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
     // Complex data items may need more than one view per item, and
     // you provide access to all the views for a data item in a view holder
     public static class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        MainActivity.RecyclerOnClickListener listener;
+        Listas.RecyclerOnClickListener listener;
         // each data item is just a string in this case
         public TextView mTextView;
-        public MyViewHolder(View v, final MainActivity.RecyclerOnClickListener listener) {
+        public MyViewHolder(View v, final Listas.RecyclerOnClickListener listener) {
             super(v);
             mTextView = v.findViewById(R.id.lst_txtView);
             this.listener = listener;
