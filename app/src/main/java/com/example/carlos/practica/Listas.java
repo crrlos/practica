@@ -36,8 +36,9 @@ public class Listas extends AppCompatActivity {
 
 
         mRecyclerView = findViewById(R.id.recyclerView);
-        DividerItemDecoration itemDecor = new DividerItemDecoration(mRecyclerView.getContext(), DividerItemDecoration.VERTICAL);
-        mRecyclerView.addItemDecoration(itemDecor);
+
+        /*DividerItemDecoration itemDecor = new DividerItemDecoration(mRecyclerView.getContext(), DividerItemDecoration.VERTICAL);
+        mRecyclerView.addItemDecoration(itemDecor);*/
 
         // use this setting to improve performance if you know that changes
         // in content do not change the layout size of the RecyclerView
