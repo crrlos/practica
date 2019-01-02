@@ -20,5 +20,14 @@ public class Principal extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+        Button  b2 = findViewById(R.id.btn2);
+        b2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Principal.this,Tab.class);
+                startActivity(i);
+            }
+        });
     }
 }
