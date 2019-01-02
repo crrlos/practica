@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -24,16 +25,24 @@ public class Listas extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listas);
+        Toolbar toolbar = findViewById(R.id.tool10);
+        toolbar.setTitle("barrita");
+        setSupportActionBar(toolbar);
+
 
         final List<String> names = new ArrayList<>();
-        Button agregar = findViewById(R.id.button2);
+
+
+
+
+        /*Button agregar = findViewById(R.id.button2);
         agregar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 names.add("carlos " + names.size());
                 mAdapter.notifyItemInserted(names.size());
             }
-        });
+        });*/
 
 
         mRecyclerView = findViewById(R.id.recyclerView);
@@ -78,7 +87,23 @@ public class Listas extends AppCompatActivity {
                 Toast.makeText(Listas.this, "long click", Toast.LENGTH_SHORT).show();
             }
         });
-
+        names.add("carlos " + names.size());
+        names.add("carlos " + names.size());
+        names.add("carlos " + names.size());
+        names.add("carlos " + names.size());
+        names.add("carlos " + names.size());
+        names.add("carlos " + names.size());
+        names.add("carlos " + names.size());
+        names.add("carlos " + names.size());
+        names.add("carlos " + names.size());
+        names.add("carlos " + names.size());
+        names.add("carlos " + names.size());
+        names.add("carlos " + names.size());
+        names.add("carlos " + names.size());
+        names.add("carlos " + names.size());
+        names.add("carlos " + names.size());
+        names.add("carlos " + names.size());
+        mAdapter.notifyItemInserted(names.size());
         mRecyclerView.setAdapter(mAdapter);
     }
     public interface RecyclerOnClickListener{
